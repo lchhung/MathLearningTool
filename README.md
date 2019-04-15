@@ -6,4 +6,5 @@
 
 #The App includes different learning modules for example, multiplication tables, division tables, adding and subtracting up to 100, practices modules and so on.
 # How to run
-# 1. npm install or yarn install
+# npm install or yarn install
+# react-native-run-android
