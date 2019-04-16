@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import {AppRegistry} from 'react-native';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { IconWithBadge } from './IconWithBadge';
+import { IconWithBadge } from './src/components/welcome/IconWithBadge';
 import { LearnAllScreen } from './src/components/LearnAll/LearnAllScreen';
 import { AllPracticeScreen } from './src/components/Practices/AllPracticeScreen';
 import {SplashScreen} from './src/components/welcome/SplashScreen';
@@ -95,6 +95,6 @@ const RootStack = createBottomTabNavigator(
   }
 );
 const AppContainer = createAppContainer(RootStack);
-AppRegistry.registerComponent('App', () => App)
+//AppRegistry.registerComponent('App', () => App)
 
 
