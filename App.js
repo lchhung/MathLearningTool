@@ -1,16 +1,47 @@
 
 import React, { Component } from 'react';
-import { AppRegistry, Platform } from 'react-native';
+import {AppRegistry} from 'react-native';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { IconWithBadge } from './IconWithBadge';
 import { LearnAllScreen } from './src/components/LearnAll/LearnAllScreen';
 import { AllPracticeScreen } from './src/components/Practices/AllPracticeScreen';
-// This is the main program
+import {SplashScreen} from './src/components/welcome/SplashScreen';
+
+
 export default class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = { isLoading: true }
+  }
+
+  timeLapse = async() => {
+    return new Promise((resolve) =>
+      setTimeout(
+        () => { resolve('close time') },
+        5000
+      )
+    );
+  }
+
+  async componentDidMount() {
+    // Preload data from an external API
+    // Preload data using AsyncStorage
+    const data = await this.timeLapse();
+
+    if (data !== 0) {
+      this.setState({ isLoading: false });
+    }
+  }
   render() {
+    if (this.state.isLoading) {
+      return <SplashScreen />;
+    } else{
     return <AppContainer />;
   }
+}
 }
 
 const HomeIconWithBadge = props => {
@@ -40,7 +71,6 @@ const getTabBarIcon = (navigation, tintColor) => {
 const RootStack = createBottomTabNavigator(
   {
     LEARNING: LearnAllScreen,
-    //Division: LearnAllScreen,
     PRACTICE: AllPracticeScreen,
   },
   {
@@ -66,6 +96,5 @@ const RootStack = createBottomTabNavigator(
 );
 const AppContainer = createAppContainer(RootStack);
 AppRegistry.registerComponent('App', () => App)
-
 
 

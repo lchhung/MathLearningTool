@@ -19,7 +19,7 @@ class MainPracticeScreen extends React.Component {
         />
         <View>
           <Text style={[styles.paragraph, { color: 'darkblue' }]}>
-            Select to practice
+            Select to practice!
         </Text>
         </View>
         <TouchableOpacity color={isAndroid ? "blue" : "#04444b"} style={styles.buttonView} onPress={() => this.props.navigation.navigate('AddTestScreen')} >

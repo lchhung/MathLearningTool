@@ -16,7 +16,7 @@ class MainLearnScreen extends React.Component {
         />
         <View>
           <Text style={[styles.paragraph, { color: 'darkblue' }]}>
-            Select to learn
+            Select to learn!
         </Text>
         </View>
 
